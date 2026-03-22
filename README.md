@@ -47,4 +47,4 @@ xiaoliuren-skill/
 
 ## 来源
 
-提炼自 [道传小六壬在线排盘](https://xiao6ren.com) 项目，算法与数据经过系统性整理审核。
+l来自 [道传小六壬在线排盘](https://wwww.xiao6ren.com) 项目，算法与数据经过系统性整理审核。
