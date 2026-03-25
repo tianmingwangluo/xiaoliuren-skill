@@ -1,4 +1,4 @@
-# 道传小六壬 AI 代理技能 (xiaoliuren-skill)
+# 道传小六壬 AI 代理技能 (xiaoliuren-skill)小六壬skill
 
 一个为 AI 代理（Cursor / Claude Code / OpenClaw / VS Code Copilot 等）提供专业级小六壬起卦排盘与解卦能力的技能包。
 
