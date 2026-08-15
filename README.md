@@ -1,6 +1,6 @@
 # 道传小六壬 AI 代理技能（xiaoliuren-skill）
 
-为 AI 代理（DeepSeek Harness / Cursor / Claude Code / OpenClaw / VS Code Copilot 等）提供专业级小六壬起卦、排盘与解卦能力的技能包。
+为 AI 代理（DeepSeek Harness / Hermes / Cursor / Claude Code / OpenClaw / VS Code Copilot 等）提供专业级小六壬起卦、排盘与解卦能力的技能包。
 
 ## 特点
 
@@ -19,7 +19,9 @@ xiaoliuren-skill/
 └── LICENSE       # MIT 许可证
 ```
 
-## 快速开始（DeepSeek Harness）
+## 快速开始
+
+### DeepSeek Harness
 
 DSH 会扫描以下技能根目录（一层深度的 `<name>/SKILL.md` 目录包或 `<name>.md` 平铺文件）：
 
@@ -52,7 +54,38 @@ Copy-Item SKILL.md, examples.md "$env:USERPROFILE\.dsh\skills\xiaoliuren-skill\"
 - **手动调用**：在输入框输入 `/xiaoliuren-divination` 可显式加载技能正文。
 - **资源解析**：`SKILL.md` 正文引用的相对路径（如 `examples.md`）以技能目录为基准解析，模型会按需读取验证用例。
 
-本技能已按 DSH 技能规范提供 frontmatter（`name`、`description`、`whenToUse`、`user-invocable`、`metadata`），同时保持与 Cursor / Claude Code 等代理的兼容。
+本技能的 frontmatter 同时兼容 DSH（`name`、`description`、`whenToUse`、`user-invocable`、`metadata`）与 Hermes（`name`、`description`、`version`、`author`、`license`、`metadata.hermes.tags`）规范，并保持与 Cursor / Claude Code 等代理的兼容。
+
+### Hermes Agent
+
+Hermes 的技能存放在 `~/.hermes/skills/`（若设置了 `HERMES_HOME` 环境变量则为 `$HERMES_HOME/skills/`）。本仓库 `SKILL.md` 位于根目录，推荐本地安装（完整保留 `examples.md`），macOS / Linux：
+
+```bash
+git clone https://github.com/tianmingwangluo/xiaoliuren-skill.git
+mkdir -p "${HERMES_HOME:-~/.hermes}/skills/xiaoliuren-divination"
+cp xiaoliuren-skill/SKILL.md xiaoliuren-skill/examples.md "${HERMES_HOME:-~/.hermes}/skills/xiaoliuren-divination/"
+```
+
+Windows PowerShell 等价命令：
+
+```powershell
+git clone https://github.com/tianmingwangluo/xiaoliuren-skill.git
+$h = if ($env:HERMES_HOME) { $env:HERMES_HOME } else { "$env:USERPROFILE\.hermes" }
+New-Item -ItemType Directory -Force "$h\skills\xiaoliuren-divination" | Out-Null
+Copy-Item SKILL.md, examples.md "$h\skills\xiaoliuren-divination\"
+```
+
+也可从 GitHub 直接安装（会经过 Hermes 安全扫描；仅下载 `SKILL.md`，不含 `examples.md`）：
+
+```bash
+hermes skills install https://raw.githubusercontent.com/tianmingwangluo/xiaoliuren-skill/main/SKILL.md
+```
+
+安装后：
+
+- **自动调用**：描述占卜需求（如"帮我用小六壬算一下今天的财运"），Hermes 会根据 `description` 自动加载本技能。
+- **手动调用**：输入 `/xiaoliuren-divination` 可显式加载技能正文。
+- **标签检索**：已提供 `metadata.hermes.tags`（占卜、小六壬、术数、传统文化），便于在 Skills Hub 检索。
 
 ## 其他 AI 代理
 

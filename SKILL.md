@@ -3,10 +3,13 @@ name: xiaoliuren-divination
 description: "道传小六壬专业起卦与解卦技能。USE WHEN: 用户请求小六壬占卜、起卦、排盘、解卦、算卦; 用户提供数字/时间/宫位要求推算吉凶; 涉及大安/留连/速喜/赤口/小吉/空亡等六宫术语; 用户询问五行生克、六亲、六神等小六壬相关概念。DO NOT USE FOR: 其他占卜体系(如六爻、梅花易数、奇门遁甲); 一般性命理咨询(如八字、紫微斗数)。"
 whenToUse: 用户请求小六壬占卜、起卦、排盘、解卦、算卦，或提供数字、时间、宫位求测吉凶，或询问六宫、五行、六亲、六神等小六壬概念时加载本技能；不适用于六爻、梅花易数、奇门遁甲、八字等其他术数体系。
 user-invocable: true
+version: 1.0.0
+author: tianmingwangluo
+license: MIT
 metadata:
-  version: "1.0.0"
   source: "https://github.com/tianmingwangluo/xiaoliuren-skill"
-  license: MIT
+  hermes:
+    tags: [占卜, 小六壬, 术数, 传统文化]
 ---
 
 # 道传小六壬起卦与解卦技能
